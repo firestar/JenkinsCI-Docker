@@ -1,0 +1,20 @@
+pipeline {
+  agent any
+  environment {
+      DOCKER_ACCOUNT = 'firestarthehack'
+      IMAGE_VERSION = '1.01.65'
+      IMAGE_NAME = 'jenkins-primary'
+  }
+  stages {
+    stage('Docker Build') {
+      steps {
+        sh "cd primary/ && docker build -t ${env.DOCKER_ACCOUNT}/${env.IMAGE_NAME}:${env.IMAGE_VERSION} ./"
+      }
+    }
+    stage('Publish Latest Image') {
+      steps {
+        sh "docker push ${env.DOCKER_ACCOUNT}/${env.IMAGE_NAME}:${env.IMAGE_VERSION}"
+      }
+    }
+  }
+}
