@@ -1,7 +1,7 @@
 pipeline {
   agent {
     dockerfile {
-      filename 'primary/Dockerfile'
+      filename 'slave/Dockerfile'
     }
     
   }
