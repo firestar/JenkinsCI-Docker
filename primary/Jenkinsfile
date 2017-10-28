@@ -2,7 +2,7 @@ pipeline {
   agent any
   environment {
       DOCKER_ACCOUNT = 'firestarthehack'
-      IMAGE_VERSION = '1.01.65'
+      IMAGE_VERSION = '1.02.86'
       IMAGE_NAME = 'jenkins-primary'
   }
   stages {
